@@ -6,7 +6,7 @@ import OpenInNew from '@mui/icons-material/OpenInNew'; // ✅ use a suitable ico
 
 const FundInfoCard = ({ fundInfo }) => {
   return (
-    <Card sx={{ minWidth: 320 }}>
+    <Card sx={{ minWidth: 320, maxWidth: 800, }}>
       {/* Use fundInfo['Fund Name'] directly */}
       <Typography level="title-lg" sx={{ color:"#306844" }}>
         {fundInfo['Fund Name']}
@@ -16,9 +16,15 @@ const FundInfoCard = ({ fundInfo }) => {
       {Object.entries(fundInfo).map(([key, value]) => {
         if (key !== 'Fund Name' && key !== 'Information') {
           return (
-            <CardContent key={key} orientation="horizontal" sx={{ gap: 2 }}>
+            <CardContent key={key} orientation="horizontal" sx={{
+              display: 'grid',
+              gridTemplateColumns: '180px 1fr',
+              gap: 1,
+              alignItems: 'start',
+              paddingY: 0.5,
+            }}>
               <Typography level="body-sm" fontWeight="bold">
-                {key}
+                {key}:
               </Typography>
               <Typography level="body-sm">{value}</Typography>
             </CardContent>
@@ -35,7 +41,11 @@ const FundInfoCard = ({ fundInfo }) => {
           target="_blank"
           rel="noopener noreferrer"
           startDecorator={<OpenInNew />}
-          sx={{ maxWidth: 250 }}
+          sx={{ maxWidth: 250, backgroundColor: 'black',
+            color: 'white',
+            '&:hover': {
+              backgroundColor: '#333',
+            },}}
         >
           More Information
         </Button>

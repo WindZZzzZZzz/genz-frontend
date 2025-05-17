@@ -20,7 +20,7 @@ export default function SelectFormSubmission({ filterOption, originData, filtere
 	const handleSubmit = (event) => {
 		event.preventDefault();
 		const filtered = originData.filter((item) => {
-			const matchesKeyword = !conditions.keyword || item['Fund Name']?.toLowerCase().includes(conditions.keyword.toLowerCase());
+			const matchesKeyword = !conditions.keyword || item['Fund Name']?.toLowerCase().includes(conditions.keyword.toLowerCase()) || item['Organisation']?.toLowerCase().includes(conditions.keyword.toLowerCase());
 			const matchesRegion = !conditions.region || conditions.region.length === 0 || conditions.region.some(region => item['Region']?.includes(region));
 			const matchesAge = !conditions.age || item['Age Eligibility'] === conditions.age;
 			const matchesType = !conditions.type || conditions.type.length === 0 || conditions.type.some(type => item['Type of Funding']?.includes(type));
@@ -28,6 +28,12 @@ export default function SelectFormSubmission({ filterOption, originData, filtere
 		});
 		filteredDataSetter(filtered);
 	};
+
+  const clearFilter = (event) => {
+    event.preventDefault();
+    setConditions({});
+    filteredDataSetter(originData);
+  }
 
   return (
     <form
@@ -70,6 +76,7 @@ export default function SelectFormSubmission({ filterOption, originData, filtere
           placeholder="Select Region"
           options={filterOption?.regions}
           multiple
+          value={conditions.region || []}
 					onChange={handleChange}
         />
         <FundSelect
@@ -77,6 +84,7 @@ export default function SelectFormSubmission({ filterOption, originData, filtere
           label="Age Eligibility"
           placeholder="Select Age"
           options={filterOption?.ages}
+          value={conditions.age || null}
 					onChange={handleChange}
         />
         <FundSelect
@@ -85,10 +93,22 @@ export default function SelectFormSubmission({ filterOption, originData, filtere
           placeholder="Select Fund Type"
           options={filterOption?.types}
           multiple
+          value={conditions.type || []}
 					onChange={handleChange}
         />
 
-        <Button type="submit">Search</Button>
+        <Stack direction='row' display='flex' justifyContent='space-between' alignItems='center' gap={2}>
+          <Button type="submit" sx={{ maxWidth: 100, backgroundColor: 'black',
+            color: 'white',
+            '&:hover': {
+              backgroundColor: '#333',
+            },}}>Search</Button>
+          <Button type="button" sx={{ maxWidth: 200, backgroundColor: 'black',
+            color: 'white',
+            '&:hover': {
+              backgroundColor: '#333',
+            },}} onClick={clearFilter}>Clear Filter</Button>
+        </Stack>
       </Stack>
     </form>
   );

@@ -4,12 +4,10 @@ import KeyboardArrowDown from '@mui/icons-material/KeyboardArrowDown';
 import IconButton from '@mui/joy/IconButton';
 import CloseRounded from '@mui/icons-material/CloseRounded';
 
-const FundSelect = ({ name, label, placeholder, options, multiple, onChange }) => {
-  const [value, setValue] = useState(multiple ? [] : null);
+const FundSelect = ({ name, label, placeholder, options, multiple, value, onChange }) => {
   const action = useRef();
 
   const handleChange = (event, newValue) => {
-    setValue(newValue);
     onChange?.({
       target: {
         name,
@@ -20,7 +18,6 @@ const FundSelect = ({ name, label, placeholder, options, multiple, onChange }) =
 
   const handleClear = () => {
     const clearedValue = multiple ? [] : null;
-    setValue(clearedValue);
     onChange?.({ target: { name, value: clearedValue } });
     action.current?.focusVisible();
   };

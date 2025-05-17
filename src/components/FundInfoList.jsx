@@ -22,7 +22,7 @@ const FundInfoList = ({ fundInfos }) => {
   return (
     <Stack spacing={2} direction="column"
         flexWrap="wrap"
-        justifyContent="center">
+        justifyContent="center" alignContent="center">
       {/* Cards */}
       {selectedFunds.map((fund, idx) => (
         <FundInfoCard key={idx} fundInfo={fund} />
