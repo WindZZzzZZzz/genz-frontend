@@ -34,9 +34,9 @@ function App() {
       <Box
         sx={{
           flex: 1,
-          p: 1,
+          p: 3,
           borderRight: { md: '1px solid #ccc' },
-          overflowY: 'auto',
+          overflowY: 'hidden',
           overflowX: 'hidden',
           backgroundColor: '#ffb6c1'
         }}
