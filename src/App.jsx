@@ -34,10 +34,11 @@ function App() {
       <Box
         sx={{
           flex: 1,
-          p: 2,
+          p: 1,
           borderRight: { md: '1px solid #ccc' },
           overflowY: 'auto',
-          backgroundColor: 'lightpink'
+          overflowX: 'hidden',
+          backgroundColor: '#ffb6c1'
         }}
       >
         <FundInfoForm filterOption={filters} originData={csvData} filteredDataSetter={setFilteredData} />

@@ -43,7 +43,6 @@ export default function SelectFormSubmission({ filterOption, originData, filtere
         spacing={{ xs: 2, sm: 5, md: 5}}
         sx={{
           padding: '2rem',
-          backgroundColor: 'lightpink',
           width: { xs: '100%', sm: '90%', md: '30rem' },
           mx: 'auto',
         }}
