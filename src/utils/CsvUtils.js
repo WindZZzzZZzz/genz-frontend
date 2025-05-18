@@ -29,4 +29,5 @@ export async function extractFilters(data) {
     ages: Array.from(ageSet),
     types: Array.from(typeSet)
   };
+  
 }
