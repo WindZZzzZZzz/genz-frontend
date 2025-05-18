@@ -11,7 +11,7 @@ function App() {
   const [filteredData, setFilteredData] = useState([]);
 
   useEffect(() => {
-    processCsv('/data/fund_info.csv').then(data => {
+    processCsv('data/fund_info.csv').then(data => {
       setCsvData(data);
       extractFilters(data).then(filters => {
         setFilters(filters);
