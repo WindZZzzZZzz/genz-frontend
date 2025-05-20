@@ -48,17 +48,17 @@ export default function SelectFormSubmission({ filterOption, originData, filtere
         }}
       >
 				<Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
-					<Typography level="h1">Funding Opportunities</Typography>
-					<Typography level="body-md">
+					<Typography level="h1" sx={{color:"whitesmoke"}}>Funding Opportunities</Typography>
+					<Typography level="body-md" sx={{color:"whitesmoke"}}>
 						Use the table to explore funding opportunities tailored to your needs. We're committed to gathering and sharing youth-focused funding options from across Aotearoa.
 					</Typography>
 				</Box>
         <Stack
           direction={{ xs: 'column', sm: 'row' }}
           spacing={2}
-          sx={{ alignItems: 'center', justifyContent: 'space-between' }} 
+          sx={{ alignItems: 'center', justifyContent: 'space-between', color:"whitesmoke"}} 
         >
-          <FormLabel htmlFor="keyword">Keyword</FormLabel>
+          <FormLabel htmlFor="keyword" sx={{color:"whitesmoke", fontSize: (theme) => theme.typography.h4.fontSize, fontWeight: (theme) => theme.typography.h4.fontWeight}}>Keyword</FormLabel>
           <Input
             id="keyword"
             placeholder="Type in here…"
@@ -97,12 +97,12 @@ export default function SelectFormSubmission({ filterOption, originData, filtere
         />
 
         <Stack direction='row' display='flex' justifyContent='space-between' alignItems='center' gap={2}>
-          <Button type="submit" sx={{ maxWidth: 100, backgroundColor: 'black',
+          <Button type="submit" sx={{ maxWidth: 100, backgroundColor: "darkcyan",
             color: 'white',
             '&:hover': {
               backgroundColor: '#333',
             },}}>Search</Button>
-          <Button type="button" sx={{ maxWidth: 200, backgroundColor: 'black',
+          <Button type="button" sx={{ maxWidth: 200, backgroundColor: "darkcyan",
             color: 'white',
             '&:hover': {
               backgroundColor: '#333',

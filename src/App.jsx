@@ -38,7 +38,7 @@ function App() {
           borderRight: { md: '1px solid #ccc' },
           overflowY: 'hidden',
           overflowX: 'hidden',
-          backgroundColor: '#ffb6c1'
+          backgroundColor: '#FF4433',
         }}
       >
         <FundInfoForm filterOption={filters} originData={csvData} filteredDataSetter={setFilteredData} />

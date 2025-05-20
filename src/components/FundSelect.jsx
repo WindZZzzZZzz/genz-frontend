@@ -30,7 +30,7 @@ const FundSelect = ({ name, label, placeholder, options, multiple, value, onChan
       direction={{ xs: 'column', sm: 'row' }}
       spacing={2}
     >
-      <FormLabel htmlFor={name}>{label}</FormLabel>
+      <FormLabel htmlFor={name} sx={{color:"whitesmoke", fontSize: (theme) => theme.typography.h4.fontSize, fontWeight: (theme) => theme.typography.h4.fontWeight}}>{label}</FormLabel>
       <Select
         multiple={multiple}
         placeholder={placeholder}
